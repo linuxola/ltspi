@@ -4,26 +4,26 @@
 #
 # This script will install a Linux Terminal Server Project (LTSP) server for
 # Raspberry Pi 3 that are capable booting via PXE on Ubuntu 16.04.
-# 
+#
 # Copyright (C) 2016 Simon Nussbaum <simon.nussbaum@linuxola.org
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, 
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
 # USA.
 ##############################################################################
 
-exit_on_error () 
+exit_on_error ()
 {
     printf "[ERROR] %s\n" "$1"
     exit 1
@@ -137,5 +137,5 @@ cat << EOF > cmdline.txt
 dwc_otg.lpm_enable=0 console=serial0,115200 kgdboc=serial0,115200 console=tty1 init=/sbin/init-ltsp nbdroot=192.168.67.1:/opt/ltsp/armhf root=/dev/nbd0 elevator=deadline rootwait
 EOF
 
-ltsp-config lts.conf
+ltsp-config lts.conf --overwrite
 printf "\n\n*** INSTALLATION COMPLETED SUCCESSFULLY ***\n\n"
