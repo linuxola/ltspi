@@ -117,7 +117,7 @@ printf "*** Configuring the ltsp server and PXE boot for the Raspberry Pis ***\n
 cd /var/lib/tftpboot/
 svn co https://github.com/raspberrypi/firmware/branches/next/boot/ .
 
-if [ -f vmlinuz || -f initrd.img ]; then
+if [ -f vmlinuz ] || [ -f initrd.img ]; then
     rm vmlinuz initrd.img
 fi
 
