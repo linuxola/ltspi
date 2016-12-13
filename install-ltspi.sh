@@ -3,8 +3,8 @@
 # LTSPi installation script
 #
 # This script will install a Linux Terminal Server Project (LTSP) server for
-# Raspberry Pi 3 that are capable booting via PXE.
-#
+# Raspberry Pi 3 that are capable booting via PXE on Ubuntu 16.04.
+# 
 # Copyright (C) 2016 Simon Nussbaum <simon.nussbaum@linuxola.org
 # 
 # This program is free software; you can redistribute it and/or
