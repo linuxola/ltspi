@@ -44,7 +44,7 @@ while [ ! "$answer" = "yes" ]; do
     fi
 done
 
-printf "\n\n*** Network configuration ***"
+printf "\n\n*** Network configuration ***\n\n"
 success=1
 iface=""
 if [ -f `which nmcli` ]; then
