@@ -58,7 +58,7 @@ if [ -f `which nmcli` ]; then
         success=$?
     done
 
-    nmcli d reapply "$iface"
+    systemctl restart NetworkManager
 else
 
     while [ $success -ne 0 ]; do
