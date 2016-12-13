@@ -41,7 +41,7 @@ while [ ! "$answer" = "yes" ]; do
     read answer
     if [ "$answer" = "no" ]; then
         exit 1
-	fi
+    fi
 done
 
 printf "\n\n*** Network configuration ***"
@@ -50,15 +50,15 @@ iface=""
 if [ -f `which nmcli` ]; then
     while [ $success -ne 0 ]; do
         nmcli c show
-	    printf "Please enter the name of the interface you would like to use: "
-	    read iface
+        printf "Please enter the name of the interface you would like to use: "
+        read iface
 
-	    nmcli c m "$iface" ipv4.method manual ipv4.address 192.168.67.1/24 ipv4.never-default yes
+        nmcli c m "$iface" ipv4.method manual ipv4.address 192.168.67.1/24 ipv4.never-default yes
 
-	    success=$?
-	done
+        success=$?
+    done
 
-	nmcli d reapply "$iface"
+    nmcli d reapply "$iface"
 else
 
     while [ $success -ne 0 ]; do
@@ -68,8 +68,8 @@ else
         read iface
 
         ip address change 192.168.67.1/24 dev "$iface"
-	    if [ $? -eq 0 ]; then
-	        cat << EOF >> /etc/network/interfaces
+        if [ $? -eq 0 ]; then
+            cat << EOF >> /etc/network/interfaces
 auto $iface
 iface $iface inet static
 address 192.168.67.1/24
