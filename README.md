@@ -1,4 +1,6 @@
 # ltspi
+![alt_text](https://github.com/linuxola/ltspi/raw/master/images/photo_2016-12-13_23-35-26.png "Raspberry Pis as fat clients in Kampala, Uganda")
+
 How-to setup an Ubuntu 16.04 based LTSP server with Raspberry Pis as fat clients
 ## Prerequisites
 * Running Ubuntu 16.04
