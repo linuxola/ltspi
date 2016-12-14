@@ -1,8 +1,11 @@
 # ltspi
-How-to setup an Ubuntu 16.04 based LTSP server with Raspberry Pis as fat clients
+![alt_text](https://github.com/linuxola/ltspi/raw/master/images/photo_2016-12-13_23-35-26.png "Raspberry Pis as fat clients in Kampala, Uganda")
+
+How-to setup an Ubuntu 16.04 based LTSP server with Raspberry Pis as fat clients with PXE network boot. The setup is for a server with at least two interfaces. One for serving the clients and one for internet connection.
 ## Prerequisites
 * Running Ubuntu 16.04
 * To "next" branch flashed Raspberry Pis for PXE boot. See: https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/net_tutorial.md "CLIENT CONFIGURATION"
+* Two network interfaces otherwise the network configuration will fail.
 
 ## Installation
 1. Become root
