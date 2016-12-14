@@ -67,16 +67,18 @@ else
         printf "Make sure that there are no configurations in your network configuration file /etc/network/interfaces!\n\nPlease enter the name of the interface you would like to use: "
         read iface
 
-        ip address change 192.168.67.1/24 dev "$iface"
-        if [ $? -eq 0 ]; then
-            cat << EOF >> /etc/network/interfaces
+        ip link show "$iface"
+
+        success=$?
+    done
+    
+    cat << EOF >> /etc/network/interfaces
+
 auto $iface
 iface $iface inet static
-address 192.168.67.1/24
+  address 192.168.67.1/24
 EOF
-            success=0
-        fi
-    done
+    systemctl restart networking
 fi
 
 
