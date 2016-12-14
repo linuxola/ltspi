@@ -47,7 +47,7 @@ done
 printf "\n\n*** Network configuration ***\n\n"
 success=1
 iface=""
-if [ -f `which nmcli` ]; then
+if [ -f "$(which nmcli)" ]; then
     while [ $success -ne 0 ]; do
         nmcli c show
         printf "Please enter the name of the interface you would like to use: "
