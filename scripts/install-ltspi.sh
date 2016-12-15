@@ -117,7 +117,7 @@ ltsp-build-client --arch armhf --config /etc/ltsp/ltsp-build-client-raspi2.conf
 
 printf "*** Configuring the ltsp server and PXE boot for the Raspberry Pis ***\n\n"
 cd /var/lib/tftpboot/
-svn co -r 768 https://github.com/raspberrypi/firmware/branches/next/boot/ .
+svn co https://github.com/raspberrypi/firmware/branches/next/boot/ .
 
 if [ -f vmlinuz ] || [ -f initrd.img ]; then
     rm vmlinuz initrd.img
