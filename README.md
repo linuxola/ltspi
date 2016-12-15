@@ -4,7 +4,7 @@
 How-to setup an Ubuntu 16.04 based LTSP server with Raspberry Pis as fat clients with PXE network boot. The setup is for a server with at least two interfaces. One for serving the clients and one for internet connection.
 ## Prerequisites
 * Running Ubuntu 16.04
-* To "next" branch flashed Raspberry Pis for PXE boot. See: https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/net_tutorial.md "CLIENT CONFIGURATION"
+* To "next" branch flashed Raspberry Pis for PXE boot. See: https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/net_tutorial.md "CLIENT CONFIGURATION". **_Attention:_** _The latest release 769 of the firmware does not work with the current Ubuntu kernel. You need to flash the Raspberry Pi with `sudo BRANCH=next rpi-update 1aafa469e2c5b0f39fee5ca7648114ac176a9372`_
 * Two network interfaces otherwise the network configuration will fail.
 
 ## Installation
@@ -83,8 +83,10 @@ apt --yes --install-recommends install ltsp-server-standalone vim epoptes subver
 9. Check out firmware for Raspberry Pi from their Github repository’s next branch
  
  ```
- svn co https://github.com/raspberrypi/firmware/branches/next/boot/ .
+ svn co -r 768 https://github.com/raspberrypi/firmware/branches/next/boot/ .
  ```
+ 
+ _The revision 768 had to be added because at the moment newer revisions don't work with the current kernel 4.4.0-1034-raspi2_
  
 12. Create symbolic links from kernel in /var/lib/tftpboot. It is important, that the symlink’s destination is relative to this  folder. Otherwise the tftp server’s chroot cannot follow it!
 
